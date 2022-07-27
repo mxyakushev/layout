@@ -1,0 +1,141 @@
+.header {
+    width: 100%;
+    padding: 25px 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    background-color: #DDECF7;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 50px;
+    }
+}
+
+.header__logo {
+    font-size: 40px;
+    color: $main-color;
+    transition: opacity .2s ease, transform .2s ease;
+    
+    &:hover {
+        opacity: 0.9;
+        transform: scale(1.05);
+    }
+}
+
+.header__menu-list {
+    font-size: 18px;
+    line-height: 19px;
+    display: flex;
+    width: 100%;
+    max-width: 310px;
+    justify-content: space-between;
+    transition: right .3s ease;
+
+    a {
+        color: #0F001A;
+        transition: color .2s ease;
+
+        &:hover {
+            color: $main-color;
+        }
+    }
+}
+
+.header__menu-burger {
+    display: none;
+    position: relative;
+    width: 40px;
+    height: 5px;
+    background-color: $main-color;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: .3s;
+    transform: translateY(-100%);
+}
+
+.header__menu-burger::before,
+.header__menu-burger::after {
+    content: '';
+    position: absolute;
+    height: 5px;
+    right: 0;
+    background-color: $main-color;
+    border-radius: 4px;
+    transition: .3s;
+}
+
+.header__menu-burger::before {
+    top: -10px;
+    width: 30px;
+}
+
+.header__menu-burger::after {
+    top: 10px;
+    width: 35px;
+}
+
+.header__toggle-burger {
+    display: none;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1001;
+    right: 50px;
+    opacity: 0;
+
+    &:checked ~ .header__menu-burger {
+        background-color: transparent;
+    }
+
+    &:checked ~ .header__menu-burger::before {
+        top: 0;
+        transform: rotate(-45deg);
+        width: 40px;
+    }
+
+    &:checked ~ .header__menu-burger::after {
+        top: 0;
+        transform: rotate(45deg);
+        width: 40px;
+    }
+
+    &:checked ~ .header__menu-list {
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .header__menu-burger {
+        display: block;
+    }
+
+    .header__toggle-burger {
+        display: block;
+    }
+
+    .header__menu-list {
+        font-size: 40px;
+        line-height: 46px;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        justify-content: flex-start;
+        text-align: center;
+        top: 90px;
+        right: -100%;
+        max-width: none;
+        z-index: 100;
+        background-color: #fff;
+        height: 100vh;
+
+        li {
+            margin: 30px 0;
+        }
+    }
+}

@@ -1,0 +1,49 @@
+// SLIDE 1 CHECKED
+
+#sl1:checked~.slide1 {
+    left: 0;
+}
+
+#sl1:checked~.slide2 {
+    left: 100%;
+}
+
+#sl1:checked~.slide3 {
+    left: 200%;
+}
+
+// SLIDE 2 CHECKED
+
+#sl2:checked~.slide1 {
+    left: -200%;
+}
+
+#sl2:checked~.slide2 {
+    left: -100%;
+}
+
+#sl2:checked~.slide3 {
+    left: 0;
+}
+
+// SLIDE 3 CHECKED
+
+#sl3:checked~.slide1 {
+    left: -400%;
+}
+
+#sl3:checked~.slide2 {
+    left: -300%;
+}
+
+#sl3:checked~.slide3 {
+    left: -200%;
+}
+
+// SWITCHERS
+
+#sl1:checked~.switcher1,
+#sl2:checked~.switcher2,
+#sl3:checked~.switcher3 {
+    display: flex;
+}
